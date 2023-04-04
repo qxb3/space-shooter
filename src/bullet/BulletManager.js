@@ -9,7 +9,7 @@ class BulletManager {
 
     this.game.keys.on('up', () => {
       const x = this.player.x + 2
-      const y = this.game.height
+      const y = this.game.height - 1
 
       this.shoot(x, y)
     })
