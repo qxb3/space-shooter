@@ -11,7 +11,7 @@ class Bullet {
     this.speed = 2
   }
 
-  draw() {
+  render() {
     this.game.draw(this.char, this.x, this.y)
   }
 

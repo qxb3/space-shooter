@@ -17,7 +17,7 @@ class BulletManager {
 
   render() {
     for (const bullet of this.bullets) {
-      bullet.draw()
+      bullet.render()
     }
   }
 
