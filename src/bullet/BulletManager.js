@@ -1,4 +1,5 @@
 import Bullet from './Bullet.js'
+import utils from '../utils.js'
 
 class BulletManager {
   constructor(game, player) {
@@ -34,6 +35,8 @@ class BulletManager {
 
   shoot(x, y) {
     this.bullets.push(new Bullet(x, y, this.game))
+
+    utils.playMusic('gun-sfx.mp3')
   }
 }
 

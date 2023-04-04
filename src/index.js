@@ -3,12 +3,15 @@ import Player from './Player.js'
 import BulletManager from './bullet/BulletManager.js'
 import AsteroidManager from './asteroid/AsteroidManager.js'
 import StarManager from './star/StarManager.js'
+import utils from './utils.js'
 
 const game = new Game({ ms: 30 })
 const player = new Player(game)
 const bulletManager = new BulletManager(game, player)
 const asteroidManager = new AsteroidManager(game)
 const starManager = new StarManager(game)
+
+utils.playMusic('bg-music.mp3', 9999)
 
 game.update(() => {
   player.render()
@@ -30,6 +33,8 @@ game.update(() => {
 
         if (asteroid.health < 3) asteroid.decreaseHealth()
         else asteroidManager.asteroids = asteroidManager.asteroids.filter(v => v.id !== asteroid.id)
+
+        utils.playMusic('explosion.mp3')
       }
     }
   }
