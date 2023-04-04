@@ -47,6 +47,12 @@ class Asteroid {
     this.health += 1
     this.char = this.chars[this.health]
   }
+
+  isEdge() {
+    if (this.y > this.game.height - 1) return true
+
+    return false
+  }
 }
 
 export default Asteroid

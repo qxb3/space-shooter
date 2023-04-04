@@ -8,7 +8,7 @@ class AsteroidManager {
 
     setInterval(() => {
       this.spawn()
-    }, 3000)
+    }, 3500)
   }
 
   render() {
@@ -19,6 +19,11 @@ class AsteroidManager {
 
   update() {
     for (const asteroid of this.asteroids) {
+      if (asteroid.isEdge()) {
+        this.asteroids = this.asteroids.filter(v => v.id !== asteroid.id)
+        continue
+      }
+
       asteroid.update()
     }
   }

@@ -46,6 +46,7 @@ function checkCollision(char1, x1, y1, char2, x2, y2) {
     x2: parseInt(x1) + Math.max(...chars1.map((line) => line.length)),
     y2: parseInt(y1) + chars1.length,
   }
+
   const box2 = {
     x1: parseInt(x2),
     y1: parseInt(y2),
