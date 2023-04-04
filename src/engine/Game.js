@@ -3,6 +3,7 @@ import Keys from './Keys.js'
 class Game {
   constructor(options) {
     this.ms = options.ms ?? 100
+    this.quitKey = options.quitKey ?? 'q'
 
     this.width = process.stdout.columns
     this.height = process.stdout.rows
@@ -21,6 +22,10 @@ class Game {
 
     process.on('SIGINT', () => {
       process.exit()
+    })
+
+    this.keys.on(this.quitKey, () => {
+      process.exit(0)
     })
   }
 
