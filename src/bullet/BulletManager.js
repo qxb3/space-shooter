@@ -1,5 +1,4 @@
 import Bullet from './Bullet.js'
-import crypto from 'crypto'
 
 class BulletManager {
   constructor(game, player) {
@@ -9,11 +8,10 @@ class BulletManager {
     this.player = player
 
     this.game.keys.on('up', () => {
-      const id = crypto.randomUUID()
       const x = this.player.x + 2
       const y = this.game.height
 
-      this.shoot(id, x, y)
+      this.shoot(x, y)
     })
   }
 
@@ -34,8 +32,8 @@ class BulletManager {
     }
   }
 
-  shoot(id, x, y) {
-    this.bullets.push(new Bullet(id, x, y, this.game))
+  shoot(x, y) {
+    this.bullets.push(new Bullet(x, y, this.game))
   }
 }
 

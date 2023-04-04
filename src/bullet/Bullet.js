@@ -1,9 +1,11 @@
+import crypto from 'crypto'
+
 class Bullet {
-  constructor(id, x, y, game) {
+  constructor(x, y, game) {
     this.game = game
 
-    this.char = '|'
-    this.id = id
+    this.char = 'O'
+    this.id = crypto.randomUUID()
     this.x = x
     this.y = y
     this.speed = 2
