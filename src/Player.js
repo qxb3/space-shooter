@@ -5,7 +5,7 @@ class Player {
     this.char = `[/∆\\]`
     this.x = parseInt(this.game.width / 2 - 1)
     this.y = this.game.height
-    this.speed = 4
+    this.speed = 2
     this.xVelocity = 0
     this.drag = 1
 
