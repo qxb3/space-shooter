@@ -1,17 +1,21 @@
 import Game from './engine/Game.js'
 import Player from './Player.js'
-import BulletManager from './BulletManager.js'
+import BulletManager from './bullet/BulletManager.js'
+import StarManager from './star/StarManager.js'
 
 const game = new Game({ ms: 30 })
 const player = new Player(game)
 const bulletManager = new BulletManager(game, player)
+const starManager = new StarManager(game)
 
 game.update(() => {
   player.render()
   bulletManager.render()
+  starManager.render()
 
   player.update()
   bulletManager.update()
+  starManager.update()
 })
 
 function checkCollision(x1, y1, char1, x2, y2, char2) {
