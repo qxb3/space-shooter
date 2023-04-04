@@ -1,9 +1,18 @@
+import Keys from './Keys.js'
+
 class Game {
   constructor(options) {
     this.ms = options.ms ?? 100
 
     this.width = process.stdout.columns
     this.height = process.stdout.rows
+
+    this.keys = new Keys()
+
+    this.last = performance.now()
+
+    process.stdout.write('\x1B[?25l')
+    process.stdout.write('\u001b[?7l')
 
     process.on('exit', () => {
       console.clear()
@@ -25,15 +34,28 @@ class Game {
       this.height = process.stdout.rows
 
       process.stdout.write('\x1B[2J\x1B[0;0f')
-      process.stdout.write('\x1B[?25l')
 
-      callbackFn()
+      const now = performance.now()
+      const deltaTime = (now - this.last) / 1000
+      this.last = now
+
+      callbackFn(deltaTime)
     }, this.ms)
   }
 
   draw(char, x, y) {
-    process.stdout.write(`\x1b[${parseInt(y)};${parseInt(x)}H`)
-    process.stdout.write(char)
+    const chars = char.split('\n')
+
+    for (let i = 0; i < chars.length; i++) {
+      const xCoord = parseInt(x)
+      const yCoord = parseInt(y + i - 1)
+
+      if (xCoord  < 0 || xCoord + chars[i].length > this.width) continue
+      if (yCoord < 0 || yCoord > this.height) continue
+
+      process.stdout.cursorTo(xCoord, yCoord)
+      process.stdout.write(chars[i])
+    }
   }
 }
 
