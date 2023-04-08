@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import utils from '../utils.js'
+import utils from '../../utils.js'
 
 class Asteroid {
   constructor(game) {

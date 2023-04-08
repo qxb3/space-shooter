@@ -1,5 +1,5 @@
 import Bullet from './Bullet.js'
-import utils from '../utils.js'
+import utils from '../../utils.js'
 
 class BulletManager {
   constructor(game, player) {

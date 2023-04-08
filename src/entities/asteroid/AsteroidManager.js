@@ -1,4 +1,4 @@
-import Asteroid from "./Asteroid.js"
+import Asteroid from './Asteroid.js'
 
 class AsteroidManager {
   constructor(game) {

@@ -1,8 +1,8 @@
 import Game from './engine/Game.js'
-import Player from './Player.js'
-import BulletManager from './bullet/BulletManager.js'
-import AsteroidManager from './asteroid/AsteroidManager.js'
-import StarManager from './star/StarManager.js'
+import Player from './entities/Player.js'
+import BulletManager from './entities/bullet/BulletManager.js'
+import AsteroidManager from './entities/asteroid/AsteroidManager.js'
+import StarManager from './entities/star/StarManager.js'
 import utils from './utils.js'
 
 const game = new Game({ ms: 30 })
