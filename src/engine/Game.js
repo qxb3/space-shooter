@@ -62,6 +62,10 @@ class Game {
       process.stdout.write(chars[i])
     }
   }
+
+  exit() {
+    process.exit(0)
+  }
 }
 
 export default Game
